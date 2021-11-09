@@ -7,9 +7,13 @@ mathjax: true
 # Time Series Classification via Topological Data Analysis
 
 Author: Yuhei Umeda
+
 Translator : 이성헌 (POSTECH MINDS)
+
 Subject: ML, TDA
-URL : https://www.jstage.jst.go.jp/article/imt/12/0/12_228/_pdf
+
+URL : [https://www.jstage.jst.go.jp/article/imt/12/0/12_228/_pdf](https://www.jstage.jst.go.jp/article/imt/12/0/12_228/_pdf)
+
 # Summary
 
  이 논문은 변동성 시계열(volatile time series)에 대한 분류 문제에 초점을 맞춘다. 
@@ -134,13 +138,7 @@ chaotic한 시계열은 다양한 시계열 데이터 세트에 포함된다.
 
 # 2. Our Classification Algorithm
 
-1. Preprocessing Part
-1.1 Convert TSD to 'quasi-attractor'
-1.2 Convert quasi-attractor to 'Betti sequence'
-2. Learning Part
-2.1 Construct a classifier based on a 1-D CNN using the Beti sequence dataset.
-
-![Untitled](Time%20Series%20Classification%20via%20Topological%20Data%20An%20be717522bb804f75a2a6e33909ac615b/Untitled.png)
+![Figure 1](/Users/leeseongheon/github_blog/SHlee-TDA.github.io/_posts/Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled.png)
 
 이 장에서는 그림 1과 같이 시계열 분류 알고리즘의 개요를 개략적으로 설명한다.
 
@@ -176,7 +174,7 @@ chaotic한 시계열 분류의 경우, 예를 들어 Lyapunov exponenet 같은 c
 
 ## 3.1 Difference Equation and Attractor
 
-본 논문에서 우리는 관찰된 시계열 $\left\{x_1,\ldots,x_t\right\}$ ($x_i \in \R$)은 다음과 같이 정의되는 difference function을 가진다고 가정한다.
+본 논문에서 우리는 관찰된 시계열 $\left\{x_1,\ldots,x_t\right\}$ ($x_i \in \mathbb{R}$)은 다음과 같이 정의되는 difference function을 가진다고 가정한다.
 
 $$x_{k+1} = f(x_k,\ldots,x_1)\quad \quad (1)$$
 
@@ -228,7 +226,7 @@ delay vector로부터 얻은 `Quasi-attractor`의 예는 그림 2에 제시되�
 
 따라서 본 논문에서는 매개 변수를 $\tau = 1$ 및 $p=3$으로 상수 값을 할당한다.
 
-![Untitled](Time%20Series%20Classification%20via%20Topological%20Data%20An%20be717522bb804f75a2a6e33909ac615b/Untitled%201.png)
+![Figure 2](/Users/leeseongheon/github_blog/SHlee-TDA.github.io/_posts/Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 1.png)
 
 `Quasi-attractor`는 point cloud 데이터로 얻어진다.
 
@@ -266,7 +264,7 @@ TDA는 데이터 셋에서 위상적 정보를 추출하는 프레임 워크를 
 
 그림 3은 포인트 클라우드의 공간을 커버하는 지속성의 예를 보여준다.
 
-![Untitled](Time%20Series%20Classification%20via%20Topological%20Data%20An%20be717522bb804f75a2a6e33909ac615b/Untitled%202.png)
+![Figure 3](/Users/leeseongheon/github_blog/SHlee-TDA.github.io/_posts/Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 2.png)
 
 `Persistent homology`는 반지름 매개변수의 변화에 따른 구멍 수의 변화를 추적하여 point cloud 모양의 특징을 추출하는 방법이다[Carlsson 09].
 
@@ -296,7 +294,7 @@ TDA는 데이터 셋에서 위상적 정보를 추출하는 프레임 워크를 
 
 그림 4는 point cloud에서 나오는 1차원 구멍의 `Persistent diagram` 및 `Persistent barcode`의 예를 보여준다.
 
-![Untitled](Time%20Series%20Classification%20via%20Topological%20Data%20An%20be717522bb804f75a2a6e33909ac615b/Untitled%203.png)
+![Figure 4](/Users/leeseongheon/github_blog/SHlee-TDA.github.io/_posts/Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 3.png)
 
 `Persistent diagram`과 `Persistent barcode`는 중요한 정보를 제공합니다.
 
@@ -334,7 +332,7 @@ $\mathbb{X}_\epsilon$의 $d$-차원 구멍들의 수 ($d$-dimensional Betti numb
 
 `Betti sequence`의 벡터 길이는 $M=m_0+\cdots +m_n$이다.
 
-![Untitled](Time%20Series%20Classification%20via%20Topological%20Data%20An%20be717522bb804f75a2a6e33909ac615b/Untitled%204.png)
+![Figure 5](/Users/leeseongheon/github_blog/SHlee-TDA.github.io/_posts/Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 4.png)
 
 # 5. Synthetic Data
 
@@ -374,7 +372,7 @@ $\textbf{Sin-I}$와 $\textbf{Sin-III}$를 비교하면 주기의 영향을 알 �
 
 ## 5.2 Preprocessing Synthetic Data
 
-![Untitled](Time%20Series%20Classification%20via%20Topological%20Data%20An%20be717522bb804f75a2a6e33909ac615b/Untitled%205.png)
+![Figure 6](/Users/leeseongheon/github_blog/SHlee-TDA.github.io/_posts/Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 5.png)
 
 그림 6은 인공 데이터의 파형 (a), Quasi-attractor (b) 및 Betti sequence (c)를 보여준다.
 
@@ -416,7 +414,7 @@ $\textbf{Sin-I}$, $\textbf{Sin-II}$, 그리고 $\textbf{Sin-III}$의 Betti seque
 
 - ***Proposition 6-1)***
     
-    다른 진폭을 가지는 두 시계열 데이터 $x_t$와 $\tilde{x}_t = ax_t$ ($a>0$), 그리고 $d=0,1,\ldots,n$에 대하여, $x_t$로부터 얻은 closed ball space $\mathbb{X}_\epsilon$의 $d$-dimensional Betti numbers $BN_d(r)$과 $\tilde{x}_t$로부터 얻은 closed ball space $\tilde{\mathbb{X}}_\epsilon$의 Betti numbers $\tilde{BN}_d(r)$은 $\tilde{BN}_d(r) = BN_d(ar)$의 관계를 가진다.
+    다른 진폭을 가지는 두 시계열 데이터 $x_t$와 $\tilde{x}_t = ax_t$ ($a>0$), 그리고 $d=0,1,\ldots,n$에 대하여, $x_t$로부터 얻은 closed ball space $\mathbb{X}_\epsilon$의 $d$-dimensional Betti numbers $BN_d(r)$과 $\tilde{x}_t$ 로부터 얻은 closed ball space $\tilde{\mathbb{X}}_\epsilon$의 Betti numbers $\tilde{BN}_d(r)$은 $\tilde{BN}_d(r) = BN_d(ar)$의 관계를 가진다.
     
     - ***Proof)***
         
@@ -426,7 +424,7 @@ $\textbf{Sin-I}$, $\textbf{Sin-II}$, 그리고 $\textbf{Sin-III}$의 Betti seque
         
         그러면 $\tilde{x}_t$의 attractor는 $x_t$의 attractor의 scaling image가 되고, 이 경우 $\tilde{x}_t$의 closed ball space $\tilde{\mathbb{X}}_r$과 $x_t$의 $\mathbb{X}_{ar}$도 scaling image가 된다.
         
-        그러므로 $\tilde{\mathbb{X}}_r$과 $\mathbb{X}_{ar}$의 Betti number는 같다.
+        그러므로 $\tilde{\mathbb{X}}_r$ 과 $\mathbb{X}_{ar}$의 Betti number는 같다.
         
           
         
@@ -485,7 +483,7 @@ Densely connected layer는 표준 다층 신경망의 계층과 동일하다.
 
 그림 7은 CNN의 컨볼루션 및 하위 샘플링 하위 계층으로 구성된 전체 계층을 보여준다.
 
-![Untitled](Time%20Series%20Classification%20via%20Topological%20Data%20An%20be717522bb804f75a2a6e33909ac615b/Untitled%206.png)
+![Figure 7](/Users/leeseongheon/github_blog/SHlee-TDA.github.io/_posts/Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 6.png)
 
 ## 6.2 Parallel One-dimensional CNN
 
@@ -509,7 +507,7 @@ Densely connected layer는 표준 다층 신경망의 계층과 동일하다.
 
 그림 8은 병렬 1차원 신경망 아키텍처를 보여준다.
 
-![Untitled](Time%20Series%20Classification%20via%20Topological%20Data%20An%20be717522bb804f75a2a6e33909ac615b/Untitled%207.png)
+![Figure 8](/Users/leeseongheon/github_blog/SHlee-TDA.github.io/_posts/Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 7.png)
 
 위의 두 아키텍처 사이의 차이점은 다채널 베티 시퀀스에 대한 필터가 같거나 혹은 다르다는 것이다.
 
