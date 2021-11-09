@@ -1,5 +1,5 @@
 ---
-title: Time Series Classification via Topological Data Analysis
+title: [번역] Time Series Classification via Topological Data Analysis
 tags: Mathematics
 mathjax: true
 ---
@@ -7,6 +7,7 @@ mathjax: true
 # Time Series Classification via Topological Data Analysis
 
 Author: Yuhei Umeda
+Translator : 이성헌 (POSTECH MINDS)
 Subject: ML, TDA
 URL : https://www.jstage.jst.go.jp/article/imt/12/0/12_228/_pdf
 # Summary
