@@ -1,5 +1,5 @@
 ---
-title: [번역] Time Series Classification via Topological Data Analysis
+title: Time Series Classification via Topological Data Analysis - Translated
 tags: Mathematics
 mathjax: true
 ---
