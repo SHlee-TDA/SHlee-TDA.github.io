@@ -35,6 +35,7 @@ URL : [https://www.jstage.jst.go.jp/article/imt/12/0/12_228/_pdf](https://www.js
 
 우리는 Convolutional Neural Network(CNN)에서 영감을 받은 학습 아키텍처를 이 기능에 적용했고 제안된 접근 방식이 기존 접근 방식에 비해 인간 활동 인식 문제의 성능을 18.5% 향상시킨다는 것을 발견했다.
 
+
 # 1. Introduction
 
 시계열 분류는 공학 및 의학과 같은 많은 분야에서 중요한 문제이다 [Aggarwal 14]. 
@@ -137,6 +138,7 @@ chaotic한 시계열은 다양한 시계열 데이터 세트에 포함된다.
 
 우리는 8장에서 미래의 작업에 대한 간략한 요약과 언급으로 마무리한다.
 
+
 # 2. Our Classification Algorithm
 
 <imr src = "/Users/leeseongheon/github_blog/SHlee-TDA.github.io/_posts/Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled.png" >>
@@ -152,6 +154,7 @@ chaotic한 시계열은 다양한 시계열 데이터 세트에 포함된다.
 다음으로 우리는 quasi-attractor의 위상적 정보를 추출하여 생성된 betti sequence라는 새로운 형태로 준 어트랙터를 변환한다. (4장 참조)
 
 학습 파트에서는 betti sequence 데이터 세트를 사용하여 1차원 CNN을 기반으로 분류기를 구성한다(6장 참조).
+
 
 # 3. Analysis of Dynamical Systems.
 
@@ -173,9 +176,10 @@ chaotic한 시계열 분류의 경우, 예를 들어 Lyapunov exponenet 같은 c
 
 따라서 chaotic과 non-chaotic을 구별할 필요성을 없애는 것이 바람직하다.
 
+
 ## 3.1 Difference Equation and Attractor
 
-본 논문에서 우리는 관찰된 시계열 $\left\\{x_1,\ldots,x_t\right\\}$ ($x_i \in \mathbb{R}$)은 다음과 같이 정의되는 difference function을 가진다고 가정한다.
+본 논문에서 우리는 관찰된 시계열 $\\{x_1,\ldots,x_t\\}$ ($x_i \in \mathbb{R}$)은 다음과 같이 정의되는 difference function을 가진다고 가정한다.
 
 $$x\_{k+1} = f(x_k,\ldots,x_1)\quad \quad (1)$$
 
@@ -199,6 +203,7 @@ $$x\_{k+1} = f(x_k,\ldots,x_1)\quad \quad (1)$$
 
 따라서 `Attractor`는 전환 규칙을 사용하는 시계열 분류에 적합하다.
 
+
 ## 3.2 Quasi-attractor
 
 `Attractor`는 시스템 값들의 전이가 수렴하는 궤도이기 때문에 일반적으로 무한개의 점을 가진다.
@@ -209,11 +214,11 @@ $$x\_{k+1} = f(x_k,\ldots,x_1)\quad \quad (1)$$
 
 관측된 시계열로부터 `Attractor`의 정보를 얻는 가장 유명한 방법은 `Quasi-attractor`를 사용하는 방법이다.
 
-시계열 관측 $\left\\{x_0,x_1,\ldots,x_t\right\\}$를 `delay embedding`을 통해 phase space vector $\bf{Z} = \left\\{z_0,z_1,\ldots,z\_{t'}\right\\}$ ($t' = t-(p-1)\tau +1)$로 변환하는 것이다.
+시계열 관측 $\\{x_0,x_1,\ldots,x_t\\}$를 `delay embedding`을 통해 phase space vector $\bf{Z} = \\{z_0,z_1,\ldots,z\_{t'}\\}$ ($t' = t-(p-1)\tau +1)$로 변환하는 것이다.
 
 delay vector는 다음으로 정의된 시계열의 local information으로 생성된 벡터다.
 
-$$\textbf{z}\_{k} = [x_k,x\_{k+\tau},\ldots,x\_{k+(p-1)\tau}] \in \mathbb{R}^p \quad\quad (2)$$
+$$\textbf{z}\_{k} = [x_k,x_{k+\tau},\ldots,x_{k+(p-1)\tau}] \in \mathbb{R}^p \quad\quad (2)$$
 
 여기서 $\tau$는 sampling lag 이고, $p$는 embedding할 차원이다.
 
@@ -234,6 +239,7 @@ delay vector로부터 얻은 `Quasi-attractor`의 예는 그림 2에 제시되�
 
 `Quasi-attractor`의 핵심 정보는 점들의 배열이다.
 
+
 # 4. Topological Data Analysis
 
 quasi-attractor에는 두 가지 주요 특성이 있다.
@@ -250,15 +256,16 @@ TDA는 지난 10년간 빠르게 성장하고 있는 응용 수학의 비교적 
 
 TDA는 데이터 셋에서 위상적 정보를 추출하는 프레임 워크를 제공하며, 이는 특정 거리(metric)에 민감하지 않으며, 차원 감소 및 소음에 대한 견고성을 제공한다는 점에서 성공을 거뒀다.
 
+
 ## 4.1 Persistent Homology
 
 `Persistent homology`는 포인트 클라우드 데이터의 위상적 정보를 구성하기 위한 전략을 제공한다. 
 
 간단히 말해서, homology는 point cloud 구조에서 "구멍"을 발견한다.
 
-`Persistent homology`의 기본 아이디어는 데이터 세트 $\bf{Z} = \left\\{z_i \right\\}\_{i=1}^m$의 각 점을 중심으로 하는 반지름이 $\epsilon >0$인 closed ball $B(z_i,\epsilon)$의 확장이  배치되는 공간 $\mathbb{X}\_{\epsilon} = \cup\_{i=1}^m B(z_i,\epsilon)$의 homology의 족을 구성하는 것이다.
+`Persistent homology`의 기본 아이디어는 데이터 세트 $\bf{Z} = \\{z_i \\}_{i=1}^m$의 각 점을 중심으로 하는 반지름이 $\epsilon >0$인 closed ball $B(z_i,\epsilon)$의 확장이  배치되는 공간 $\mathbb{X}_{\epsilon} = \cup_{i=1}^m B(z_i,\epsilon)$의 homology의 족을 구성하는 것이다.
 
-반지름 매개변수 $\epsilon$가 고정되어 있을 때, 우리는 0차원 구멍(= 점/연결 요소에 homeomorphic), 1차원 구멍(= 원에 homeomorphic), 2차원 구멍(= 구에 homeomorphic)과 더 높은 차원의 구멍의 조합으로 $\mathbb{X}\_\epsilon$의 구조를 얻을 수 있다.
+반지름 매개변수 $\epsilon$가 고정되어 있을 때, 우리는 0차원 구멍(= 점/연결 요소에 homeomorphic), 1차원 구멍(= 원에 homeomorphic), 2차원 구멍(= 구에 homeomorphic)과 더 높은 차원의 구멍의 조합으로 $\mathbb{X}_\epsilon$의 구조를 얻을 수 있다.
 
 `Persistent homology`는 반지름 $\epsilon$에 따라 각 차원 구멍의 탄생과 사망에 대한 정보를 제공한다.
 
@@ -281,13 +288,14 @@ TDA는 데이터 셋에서 위상적 정보를 추출하는 프레임 워크를 
 
 본 논문에서, 우리는 시계열의 transition rule을 나타내는 attractor 모양의 특징을 추출하기 위해 `Persistent homology`를 사용한다.
 
+
 ## 4.2 Feature of Time Series from Persistent Homology
 
 `Persistent homology`의 고전적인 출력은 `Persistent Diagram`과 `Persistent Barcode`이다.
 
 `Persistent diagram`은 평면에 점의 모임을 그려서 작성할 수 있다.
 
-두 개의 좌표를 가진 점으로서 구멍이 탄생하는 반지름과 구멍이 사라지는 반지름의 쌍으로 구성된 확장 평면 $(\mathbb{R} \cup \left\\{\infty\right\\})^2$을 생각해 보자.
+두 개의 좌표를 가진 점으로서 구멍이 탄생하는 반지름과 구멍이 사라지는 반지름의 쌍으로 구성된 확장 평면 $(\mathbb{R} \cup \\{\infty\\})^2$을 생각해 보자.
 
 클래스 중 일부는 절대 죽지 않을 수 있으며 무한대에 위치한 점으로 표현된다.
 
@@ -311,7 +319,7 @@ TDA는 데이터 셋에서 위상적 정보를 추출하는 프레임 워크를 
 
 이 새로운 형태는 확장된 closed ball의 반지름과 해당 반지름에 있는 구조의 구멍 수(`Betti number`)에 대응한다.
 
-$\mathbb{X}\_{\epsilon}$의 $d$-차원 구멍들의 수 ($d$-dimensional Betti number)를 $BN_d (r)$이라 표기하자.
+$\mathbb{X}_{\epsilon}$의 $d$-차원 구멍들의 수 ($d$-dimensional Betti number)를 $BN_d (r)$이라 표기하자.
 
 유한한 길이의 벡터를 생성하기 위해 우리는 반지름 매개 변수를 $0< r < E$로 제한한다. 
 
@@ -327,7 +335,7 @@ $\mathbb{X}\_{\epsilon}$의 $d$-차원 구멍들의 수 ($d$-dimensional Betti n
 
 여기서 $m_d$는 $BS_d$의 이산화 mesh size (vector size)로 주어진다.
 
-각 $d$에 대하여 $\left\\{ m_d \right\\}\_{d=0}^n$이 모두 같을 필요는 없다.
+각 $d$에 대하여 $\\{ m_d \\}_{d=0}^n$이 모두 같을 필요는 없다.
 
 이 논문에서는 모든 $d$에 대하여 $m_d=300$의 공통된 값을 설정한다.
 
@@ -337,7 +345,9 @@ $\mathbb{X}\_{\epsilon}$의 $d$-차원 구멍들의 수 ($d$-dimensional Betti n
 
 <img src = "/Users/leeseongheon/github_blog/SHlee-TDA.github.io/_posts/Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 4.png">
 
+
 # 5. Synthetic Data
+
 
 ## 5.1 Synthetic Data
 
@@ -373,6 +383,7 @@ $\textbf{Sin-I}$와 $\textbf{Sin-III}$를 비교하면 주기의 영향을 알 �
 
 이 두 시계열은 초기 조건의 민감도로 인해 파형이 다르지만 time evolution equation에 기초한 분류 측면에서 동일한 클래스에 포함되어야 한다.
 
+
 ## 5.2 Preprocessing Synthetic Data
 
 <img src = "/Users/leeseongheon/github_blog/SHlee-TDA.github.io/_posts/Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 5.png">
@@ -400,6 +411,7 @@ $\textbf{Sin-I}$와 $\textbf{Sin-III}$를 비교하면 주기의 영향을 알 �
 $\textbf{Sin-I}$, $\textbf{Sin-II}$, 그리고 $\textbf{Sin-III}$의 Betti sequence를 통해 Betti sequence가 시계열의 진폭과 주기의 차이를 나타낼 수 있음을 확인할 수 있다.
 
 또한 동일한 evolution equation과 다른 파형을 가진 시계열의 Betti sequence가 그림 6(c)의 $\textbf{Chaos-I}$ 과  $\textbf{Chaos-II}$ 와 유사한 형태를 갖는 것을 관찰할 수 있다.
+
 
 # 6. Learning Architecture
 
@@ -452,6 +464,7 @@ Proposition 6-1로부터, $x_t$의 Betti sequence $BS$와 $\tilde{x}_t$의 Betti
 
 따라서 우리는 `Betti sequence`에 이미지 분류에 매우 효과적인 방법인 CNN을 적용하는 것을 고려한다.
 
+
 ## 6.1 One-dimensional Convolutional Neural Network
 
 k-NN 및 DTW의 간단한 조합은 시간 매개변수 방향의 격차에 저항할 수 있는 이 알고리즘의 능력 때문에 대부분의 영역에서 우수한 분류 성능을 제공할 수 있다[Rakthanmanon 12].
@@ -488,6 +501,7 @@ Densely connected layer는 표준 다층 신경망의 계층과 동일하다.
 
 <img srg = "/Users/leeseongheon/github_blog/SHlee-TDA.github.io/_posts/Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 6.png">
 
+
 ## 6.2 Parallel One-dimensional CNN
 
 시계열 분류를 수행할 때, 우리는 또한 손과 다리에 부착된 센서와 같은 다채널 데이터를 사용할 수 있다.
@@ -515,6 +529,7 @@ Densely connected layer는 표준 다층 신경망의 계층과 동일하다.
 위의 두 아키텍처 사이의 차이점은 다채널 베티 시퀀스에 대한 필터가 같거나 혹은 다르다는 것이다.
 
 분명히, 병렬 아키텍처는 더 상세한 모델을 나타낼 수 있다.
+
 
 ## 6.3 Learning Algorithm
 
