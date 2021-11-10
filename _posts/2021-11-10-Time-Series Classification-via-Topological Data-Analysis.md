@@ -141,7 +141,9 @@ chaotic한 시계열은 다양한 시계열 데이터 세트에 포함된다.
 
 # 2. Our Classification Algorithm
 
-<imr src = "/Users/leeseongheon/github_blog/SHlee-TDA.github.io/_posts/Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled.png" >>
+
+<img src = "Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled.png">
+
 
 이 장에서는 그림 1과 같이 시계열 분류 알고리즘의 개요를 개략적으로 설명한다.
 
@@ -170,8 +172,6 @@ chaotic한 시계열 분류의 경우, 예를 들어 Lyapunov exponenet 같은 c
 
 그러나 이러한 feature들은 non-chaotic한 시계열에 대해서는 차별점을 생성하지 않는다.
 
- 기존의 통계적 feature를 활용하는 방법들 ([Altun], [Barshan], [Baydogan], [Wanga])는 특정한 패턴이 반복되는 TSD에 효과적임. 특히 Non-chaotic한 데이터에 효과적이었음. 그러나 Chaotic한 문제들에는 별루였음.
-
 일반적으로 chaotic과 non-chaotic을 구별하는 것은 어렵고 관측된 시계열 데이터 세트는 chaotic/non-chaotic 시계열이 혼재한다.
 
 따라서 chaotic과 non-chaotic을 구별할 필요성을 없애는 것이 바람직하다.
@@ -179,9 +179,9 @@ chaotic한 시계열 분류의 경우, 예를 들어 Lyapunov exponenet 같은 c
 
 ## 3.1 Difference Equation and Attractor
 
-본 논문에서 우리는 관찰된 시계열 $\\{x_1,\ldots,x_t\\}$ ($x_i \in \mathbb{R}$)은 다음과 같이 정의되는 difference function을 가진다고 가정한다.
+본 논문에서 우리는 관찰된 시계열 $\left\{x_1,\ldots,x_t\right\}$ ($x_i \in \mathbb{R}$)은 다음과 같이 정의되는 difference function을 가진다고 가정한다.
 
-$$x\_{k+1} = f(x_k,\ldots,x_1)\quad \quad (1)$$
+$$x_{k+1} = f(x_k,\ldots,x_1)\quad \quad (1)$$
 
 일반적으로 chaotic한 상황뿐 아니라 자연에서 관측된 많은 non-chaotic 시계열의 전이 규칙을 방정식 (1) 로 나타낼 수 있다. [Basharat 09]
 
@@ -214,11 +214,11 @@ $$x\_{k+1} = f(x_k,\ldots,x_1)\quad \quad (1)$$
 
 관측된 시계열로부터 `Attractor`의 정보를 얻는 가장 유명한 방법은 `Quasi-attractor`를 사용하는 방법이다.
 
-시계열 관측 $\\{x_0,x_1,\ldots,x_t\\}$를 `delay embedding`을 통해 phase space vector $\bf{Z} = \\{z_0,z_1,\ldots,z\_{t'}\\}$ ($t' = t-(p-1)\tau +1)$로 변환하는 것이다.
+시계열 관측 $\left\{x_0,x_1,\ldots,x_t\right\}$를 `delay embedding`을 통해 phase space vector $\bf{Z} = \left\{z_0,z_1,\ldots,z\_{t'}\right\}$  ($t' = t-(p-1)\tau +1)$로 변환하는 것이다.
 
 delay vector는 다음으로 정의된 시계열의 local information으로 생성된 벡터다.
 
-$$\textbf{z}\_{k} = [x_k,x_{k+\tau},\ldots,x_{k+(p-1)\tau}] \in \mathbb{R}^p \quad\quad (2)$$
+$$\textbf{z}_{k} = [x_k,x_{k+\tau},\ldots,x_{k+(p-1)\tau}] \in \mathbb{R}^p \quad\quad (2)$$
 
 여기서 $\tau$는 sampling lag 이고, $p$는 embedding할 차원이다.
 
@@ -232,7 +232,7 @@ delay vector로부터 얻은 `Quasi-attractor`의 예는 그림 2에 제시되�
 
 따라서 본 논문에서는 매개 변수를 $\tau = 1$ 및 $p=3$으로 상수 값을 할당한다.
 
-<img src = "/Users/leeseongheon/github_blog/SHlee-TDA.github.io/_posts/Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 1.png">
+<img src = "Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 1.png">
 
 
 `Quasi-attractor`는 point cloud 데이터로 얻어진다.
@@ -263,7 +263,7 @@ TDA는 데이터 셋에서 위상적 정보를 추출하는 프레임 워크를 
 
 간단히 말해서, homology는 point cloud 구조에서 "구멍"을 발견한다.
 
-`Persistent homology`의 기본 아이디어는 데이터 세트 $\bf{Z} = \\{z_i \\}_{i=1}^m$의 각 점을 중심으로 하는 반지름이 $\epsilon >0$인 closed ball $B(z_i,\epsilon)$의 확장이  배치되는 공간 $\mathbb{X}_{\epsilon} = \cup_{i=1}^m B(z_i,\epsilon)$의 homology의 족을 구성하는 것이다.
+`Persistent homology`의 기본 아이디어는 데이터 세트 $\bf{Z} = \left\{z_i \right\}_{i=1}^m$의 각 점을 중심으로 하는 반지름이 $\epsilon >0$인 closed ball $B(z_i,\epsilon)$의 확장이  배치되는 공간 $\mathbb{X}_{\epsilon} = \cup_{i=1}^m B(z_i,\epsilon)$의 homology의 족을 구성하는 것이다.
 
 반지름 매개변수 $\epsilon$가 고정되어 있을 때, 우리는 0차원 구멍(= 점/연결 요소에 homeomorphic), 1차원 구멍(= 원에 homeomorphic), 2차원 구멍(= 구에 homeomorphic)과 더 높은 차원의 구멍의 조합으로 $\mathbb{X}_\epsilon$의 구조를 얻을 수 있다.
 
@@ -273,7 +273,7 @@ TDA는 데이터 셋에서 위상적 정보를 추출하는 프레임 워크를 
 
 그림 3은 포인트 클라우드의 공간을 커버하는 지속성의 예를 보여준다.
 
-<img src = "/Users/leeseongheon/github_blog/SHlee-TDA.github.io/_posts/Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 2.png">
+<img src = "Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 2.png">
 
 
 `Persistent homology`는 반지름 매개변수의 변화에 따른 구멍 수의 변화를 추적하여 point cloud 모양의 특징을 추출하는 방법이다[Carlsson 09].
@@ -295,7 +295,7 @@ TDA는 데이터 셋에서 위상적 정보를 추출하는 프레임 워크를 
 
 `Persistent diagram`은 평면에 점의 모임을 그려서 작성할 수 있다.
 
-두 개의 좌표를 가진 점으로서 구멍이 탄생하는 반지름과 구멍이 사라지는 반지름의 쌍으로 구성된 확장 평면 $(\mathbb{R} \cup \\{\infty\\})^2$을 생각해 보자.
+두 개의 좌표를 가진 점으로서 구멍이 탄생하는 반지름과 구멍이 사라지는 반지름의 쌍으로 구성된 확장 평면 $(\mathbb{R} \cup \left\{\infty\right\})^2$을 생각해 보자.
 
 클래스 중 일부는 절대 죽지 않을 수 있으며 무한대에 위치한 점으로 표현된다.
 
@@ -329,13 +329,13 @@ $\mathbb{X}_{\epsilon}$의 $d$-차원 구멍들의 수 ($d$-dimensional Betti nu
 
 여기서 $n$은 사용하고자 하는 homology dimension의 최댓값으로 주어진다.
 
-각 벡터들 $BS_d$의 $i$번째 성분은 $\mathbb{X}\_{i*E/m_d}$의 $d$-dimensional Betti number 수이다.
+각 벡터들 $BS_d$의 $i$번째 성분은 $\mathbb{X}_{i*E/m_d}$의 $d$-dimensional Betti number 수이다.
 
 다시 말해, $BS_d(i) = BN_d (i*E/m_d)$이다.
 
 여기서 $m_d$는 $BS_d$의 이산화 mesh size (vector size)로 주어진다.
 
-각 $d$에 대하여 $\\{ m_d \\}_{d=0}^n$이 모두 같을 필요는 없다.
+각 $d$에 대하여 $\left\{ m_d \right\}_{d=0}^n$이 모두 같을 필요는 없다.
 
 이 논문에서는 모든 $d$에 대하여 $m_d=300$의 공통된 값을 설정한다.
 
@@ -343,7 +343,7 @@ $\mathbb{X}_{\epsilon}$의 $d$-차원 구멍들의 수 ($d$-dimensional Betti nu
 
 `Betti sequence`의 벡터 길이는 $M=m_0+\cdots +m_n$이다.
 
-<img src = "/Users/leeseongheon/github_blog/SHlee-TDA.github.io/_posts/Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 4.png">
+<img src = "Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 4.png">
 
 
 # 5. Synthetic Data
@@ -386,7 +386,7 @@ $\textbf{Sin-I}$와 $\textbf{Sin-III}$를 비교하면 주기의 영향을 알 �
 
 ## 5.2 Preprocessing Synthetic Data
 
-<img src = "/Users/leeseongheon/github_blog/SHlee-TDA.github.io/_posts/Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 5.png">
+<img src = "Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 5.png">
 
 그림 6은 인공 데이터의 파형 (a), Quasi-attractor (b) 및 Betti sequence (c)를 보여준다.
 
@@ -429,7 +429,7 @@ $\textbf{Sin-I}$, $\textbf{Sin-II}$, 그리고 $\textbf{Sin-III}$의 Betti seque
 
 - ***Proposition 6-1)***
     
-    다른 진폭을 가지는 두 시계열 데이터 $x_t$ 와 $\tilde{x}_t = ax_t$ ($a>0$), 그리고  $ d=0,1,\ldots,n $ 에 대하여, $x_t$ 로부터 얻은 closed ball space $\mathbb{X}\_{\epsilon}$의 $d$-dimensional Betti numbers $BN_d(r)$과 $\tilde{x}_t$ 로부터 얻은 closed ball space $\tilde{\mathbb{X}}\_{\epsilon}$의 Betti numbers $\tilde{BN}_d(r)$은 $\tilde{BN}_d(r) = BN_d(ar)$의 관계를 가진다.
+    다른 진폭을 가지는 두 시계열 데이터 $x_t$ 와 $\tilde{x}_t = ax_t$ ($a>0$), 그리고  $ d=0,1,\ldots,n $ 에 대하여, $x_t$ 로부터 얻은 closed ball space $\mathbb{X}_{\epsilon}$의 $d$-dimensional Betti numbers $BN_d(r)$과 $\tilde{x}_t$ 로부터 얻은 closed ball space $\tilde{\mathbb{X}}_{\epsilon}$의 Betti numbers $\tilde{BN}_d(r)$은 $\tilde{BN}_d(r) = BN_d(ar)$의 관계를 가진다.
     
     - ***Proof)***
         
@@ -524,7 +524,7 @@ Densely connected layer는 표준 다층 신경망의 계층과 동일하다.
 
 그림 8은 병렬 1차원 신경망 아키텍처를 보여준다.
 
-<img src = "/Users/leeseongheon/github_blog/SHlee-TDA.github.io/_posts/Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 7.png">
+<img src = "Time Series Classification via Topological Data An be717522bb804f75a2a6e33909ac615b/Untitled 7.png">
 
 위의 두 아키텍처 사이의 차이점은 다채널 베티 시퀀스에 대한 필터가 같거나 혹은 다르다는 것이다.
 
