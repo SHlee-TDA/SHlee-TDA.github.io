@@ -1,5 +1,5 @@
 ---
-title: [논문번역] Topological Approaches to Deep Learning - [1] Introduction (진행중)
+title: Topological Approaches to Deep Learning - [1] Introduction (진행중)
 tags: Mathematics, 논문 번역, TDA, 딥 러닝
 mathjax: true
 ---
