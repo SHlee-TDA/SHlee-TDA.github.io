@@ -1,7 +1,6 @@
 ---
 title: Time Series Classification via Topological Data Analysis - Translated
 tags: Mathematics
-mathjax: true
 use_math: true
 ---
 
