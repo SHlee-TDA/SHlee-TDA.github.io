@@ -1,6 +1,31 @@
 header:
   - titles:
       # @start locale config
+      en      : &EN       Home
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      zh-Hans : *EN  
+      zh      : *EN
+      zh-CN   : *EN
+      zh-SG   : *EN
+      zh-Hant : *EN  
+      zh-TW   : *EN
+      zh-HK   : *EN
+      ko      : &KO       홈
+      ko-KR   : *KO
+      fr      : &FR       Archives
+      fr-BE   : *FR
+      fr-CA   : *FR
+      fr-CH   : *FR
+      fr-FR   : *FR
+      fr-LU   : *FR
+      # @end locale config
+    url: /home.html
+
+  - titles:
+      # @start locale config
       en      : &EN       Archive
       en-GB   : *EN
       en-US   : *EN
@@ -73,3 +98,28 @@ header:
       fr-LU   : *FR
       # @end locale config
     url: /articles.html
+
+  - titles:
+      # @start locale config
+      en      : &EN       Author
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      zh-Hans : *EN  
+      zh      : *EN
+      zh-CN   : *EN
+      zh-SG   : *EN
+      zh-Hant : *EN  
+      zh-TW   : *EN
+      zh-HK   : *EN
+      ko      : &KO       주인장
+      ko-KR   : *KO
+      fr      : &FR       Author
+      fr-BE   : *FR
+      fr-CA   : *FR
+      fr-CH   : *FR
+      fr-FR   : *FR
+      fr-LU   : *FR
+      # @end locale config
+    url: /authors.yml
